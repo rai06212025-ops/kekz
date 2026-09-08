@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kekzsite</title>
+    <title>KEKZVPN PANEL</title>
     <style>
         * {
             margin: 0;
@@ -14,61 +14,126 @@
 
         body {
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3f 50%, #16213e 100%);
             color: white;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         .logo {
-            font-size: 48px;
+            font-size: 36px;
             font-weight: bold;
-            background: linear-gradient(90deg, #e94560, #ff6b6b);
+            text-align: center;
+            background: linear-gradient(90deg, #9d4edd, #c77dff, #9d4edd);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             letter-spacing: 2px;
+            animation: gradient 4s linear infinite, float 3s ease-in-out infinite alternate;
         }
 
-        .site-name {
-            font-size: 28px;
-            color: #eee;
-            margin-bottom: 40px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-
-        .status-box {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 30px 40px;
+        .subtitle {
             text-align: center;
-            backdrop-filter: blur(10px);
-        }
-
-        .status-text {
-            font-size: 18px;
-            color: #4ade80;
-            margin-bottom: 10px;
-        }
-
-        .sub-text {
+            color: #a8a8c7;
             font-size: 14px;
-            color: #888;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
         }
 
-        .circle {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
+        .card {
+            background: rgba(30, 30, 60, 0.6);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(157, 78, 221, 0.1);
+        }
+
+        .card-title {
+            font-size: 15px;
+            color: #c77dff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .field-group {
+            margin-bottom: 12px;
+        }
+
+        .label {
+            font-size: 12px;
+            color: #8888aa;
+            margin-bottom: 5px;
+        }
+
+        .value-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 13px;
+            color: #e0d7ff;
+            word-break: break-all;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-btn {
+            background: #9d4edd;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-left: 8px;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #c77dff;
+        }
+
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .status-online {
+            color: #4ade80;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: #4ade80;
-            margin-right: 8px;
             animation: pulse 2s infinite;
+        }
+
+        @keyframes gradient {
+            to { background-position: 200% center; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(-3px); }
+            100% { transform: translateY(3px); }
         }
 
         @keyframes pulse {
@@ -76,19 +141,120 @@
             50% { opacity: 0.3; }
             100% { opacity: 1; }
         }
+
+        .note {
+            font-size: 11px;
+            color: #666688;
+            text-align: center;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
 
-    <div class="logo">kekzvpn</div>
-    <div class="site-name">kekzsite</div>
+<div class="container">
+    <h1 class="logo">KEKZVPN</h1>
+    <p class="subtitle">PANEL • TROJAN WS EDITION</p>
 
-    <div class="status-box">
-        <span class="circle"></span>
-        <p class="status-text">System Online</p>
-        <p class="sub-text">Service is running smoothly</p>
+    <!-- Status Card -->
+    <div class="card">
+        <div class="card-title">📊 CURRENT STATUS</div>
+        <div class="status-row">
+            <span class="status-online"><span class="dot"></span> System Online</span>
+            <span style="color:#888; font-size:12px;">PORT: 443</span>
+        </div>
     </div>
+
+    <!-- Address / Server -->
+    <div class="card">
+        <div class="card-title">📡 SERVER ADDRESS</div>
+        <div class="field-group">
+            <div class="label">Address / Host</div>
+            <div class="value-box" id="address">
+                <span>firebase-settings.crashlytics.com</span>
+                <button class="copy-btn" onclick="copyText('address')">Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password -->
+    <div class="card">
+        <div class="card-title">🔑 PASSWORD / SECRET</div>
+        <div class="field-group">
+            <div class="label">Trojan Password</div>
+            <div class="value-box" id="password">
+                <span>kekeman</span>
+                <button class="copy-btn" onclick="copyText('password')">Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Host / Path Host -->
+    <div class="card">
+        <div class="card-title">🌐 HOST / PATH HOST</div>
+        <div class="field-group">
+            <div class="label">Host Header Value</div>
+            <div class="value-box" id="host">
+                <span>kekz-847218516744.asia-southeast3.firebasestorage.app</span>
+                <button class="copy-btn" onclick="copyText('host')">Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Path -->
+    <div class="card">
+        <div class="card-title">🛤️ PATH / ENDPOINT</div>
+        <div class="field-group">
+            <div class="label">WebSocket Path</div>
+            <div class="value-box" id="path">
+                <span>/trws-kekz</span>
+                <button class="copy-btn" onclick="copyText('path')">Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SNI -->
+    <div class="card">
+        <div class="card-title">🔒 SNI / SERVER NAME</div>
+        <div class="field-group">
+            <div class="label">Server Name Indication</div>
+            <div class="value-box" id="sni">
+                <span>firebase-settings.crashlytics.com</span>
+                <button class="copy-btn" onclick="copyText('sni')">Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings -->
+    <div class="card">
+        <div class="card-title">⚙️ CONFIG SETTINGS</div>
+        <div class="field-group">
+            <div class="label">Port</div>
+            <div class="value-box" style="background:rgba(74,222,128,0.1);">443</div>
+        </div>
+        <div class="field-group">
+            <div class="label">Protocol</div>
+            <div class="value-box" style="background:rgba(74,222,128,0.1);">WebSocket (WS)</div>
+        </div>
+        <div class="field-group">
+            <div class="label">TLS Type</div>
+            <div class="value-box" style="background:rgba(74,222,128,0.1);">tls</div>
+        </div>
+    </div>
+
+    <p class="note">✅ Kopyahin ang bawat detalye at ilagay sa Trojan client mo</p>
+</div>
+
+<script>
+function copyText(id) {
+    const text = document.getElementById(id).querySelector('span').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        alert('✅ Nakopya na!');
+    }).catch(err => {
+        alert('❌ Hindi makopya. Piliin mano-mano.');
+    });
+}
+</script>
 
 </body>
 </html>
-
